@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Loadable from "react-loadable";
 // import Cookies from "js-cookie";
-// import urlConfig from "./const";
+import urlConfig from "./const";
 import LoadingComponent from "../components/loading-component";
 import "./index.less";
 
@@ -29,7 +29,7 @@ class Layoutroute extends React.Component {
       <Switch>
         <Route exact path="/" component={AsyncHome} />
         <Route exact path="/login" component={AsyncLogin} />
-        {/* {urlConfig.map(v => {
+        {urlConfig.map(v => {
           return (
             <Route
               path={v.path}
@@ -37,15 +37,17 @@ class Layoutroute extends React.Component {
               exact
               render={() => {
                 const Component = v.component;
-                return v.needLogin && !Cookies.get("SystemToken") ? (
-                  <Redirect to="/login" />
-                ) : (
-                  <Component />
-                );
+                return <Component />;
+                // v.needLogin && !Cookies.get("SystemToken") ?
+                // (
+                //   <Redirect to="/login" />
+                // ) : (
+                // <Component />
+                // );
               }}
             />
           );
-        })} */}
+        })}
       </Switch>
     );
   }

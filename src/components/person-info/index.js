@@ -1,10 +1,14 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import { Button } from "antd";
 import "./index.less";
-
+@withRouter
 class PersonInfo extends Component {
   submit = () => {
-    console.log("点击预约");
+    // const { push } = this.props;
+    const { history } = this.props;
+    console.log(history);
+    history.push("/appointment");
   };
   render() {
     return (
