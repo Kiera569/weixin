@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import { Button } from "antd";
+import { Button } from "antd-mobile";
 import "./index.less";
 @withRouter
 class PersonInfo extends Component {
