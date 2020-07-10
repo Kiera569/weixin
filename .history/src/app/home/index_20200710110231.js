@@ -12,15 +12,11 @@ class Home extends Component {
   };
 
   render() {
-    const arr = [1, 2, 3, 4, 5, 6];
     return (
       <div>
         <div className="home-page">首页</div>
-        {arr.map((item, index) => {
-          return <PersonInfo />;
-        })}
-
-        <Button type="primary" onClick={this.goLogin} className="gobtn">
+        <PersonInfo />
+        <Button type="primary" onClick={this.goLogin} className="gi">
           点击
         </Button>
       </div>

@@ -16,10 +16,10 @@ class Home extends Component {
     return (
       <div>
         <div className="home-page">首页</div>
-        {arr.map((item, index) => {
-          return <PersonInfo />;
-        })}
-
+        {
+          arr.map
+        }
+        <PersonInfo />
         <Button type="primary" onClick={this.goLogin} className="gobtn">
           点击
         </Button>
