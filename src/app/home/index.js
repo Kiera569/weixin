@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Button } from "antd-mobile";
 import "./index.less";
 import PersonInfo from "../../components/person-info/index";
+import TopBar from "../../components/top-bar";
 
 class Home extends Component {
   goLogin = () => {
@@ -16,7 +17,7 @@ class Home extends Component {
     const { history } = this.props;
     return (
       <div>
-        <div className="home-page">首页</div>
+        <TopBar title="首页" hideBack="null" />
         {arr.map((item, index) => {
           return <PersonInfo key={item} props={history} />;
         })}
