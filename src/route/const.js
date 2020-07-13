@@ -17,10 +17,20 @@ export default [
       delay: 300
     })
   },
+  // 医生页面
   {
     path: "/doctor",
     component: Loadable({
       loader: () => import("../app/doctor"),
+      loading: LoadingComponent,
+      delay: 300
+    })
+  },
+  // 医生主页
+  {
+    path: "/doctorPage",
+    component: Loadable({
+      loader: () => import("../app/doctorPage"),
       loading: LoadingComponent,
       delay: 300
     })
