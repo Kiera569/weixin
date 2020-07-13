@@ -1,19 +1,28 @@
 import React, { Component } from "react";
-import { Accordion, List, DatePicker } from "antd-mobile";
+import { Accordion, List, DatePicker, ListView } from "antd-mobile";
 import TopBar from "../../components/top-bar";
 import "./index.less";
+import SelectDoctor from "../../components/select-doctor";
 
 const nowTimeStamp = Date.now();
 const now = new Date(nowTimeStamp);
 
 class Doctor extends Component {
   state = {
-    date: now
+    date: now,
+    header: "外科"
   };
   onChange = key => {
     console.log(key);
   };
+  selectDepartment = () => {
+    console.log(111);
+    // this.setState({
+    // header: "内科"
+    // });
+  };
   render() {
+    const { header } = this.state;
     return (
       <div>
         <TopBar title="医生" />
@@ -24,10 +33,15 @@ class Doctor extends Component {
               className="my-accordion"
               onChange={this.onChange}
             >
-              <Accordion.Panel header="外科">
+              <Accordion.Panel header={header}>
                 <List className="my-list">
-                  <List.Item>内科</List.Item>
-                  <List.Item>骨科</List.Item>
+                  {["内科", "骨科", "妇产科"].map((item, index) => {
+                    return (
+                      <List.Item onClick={this.selectDepartment} key={index}>
+                        {item}
+                      </List.Item>
+                    );
+                  })}
                 </List>
               </Accordion.Panel>
             </Accordion>
@@ -58,6 +72,7 @@ class Doctor extends Component {
             </DatePicker>
           </div> */}
         </div>
+        <SelectDoctor />
       </div>
     );
   }
