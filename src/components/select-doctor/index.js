@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Picker, List } from "antd-mobile";
 import "./index.less";
 const datas = [
@@ -30,8 +30,11 @@ const datas = [
 
 const SelectDoctor = () => {
   const [title, setTitle] = useState("外科");
+  useEffect(() => {
+    document.getElementsByClassName("am-list-extra")[0].remove();
+  }, []);
   return (
-    <div>
+    <div className="seleBox">
       <List style={{ backgroundColor: "white" }} className="picker-list">
         <Picker
           data={datas}
