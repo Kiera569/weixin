@@ -16,5 +16,13 @@ export default [
       loading: LoadingComponent,
       delay: 300
     })
+  },
+  {
+    path: "/doctor",
+    component: Loadable({
+      loader: () => import("../app/doctor"),
+      loading: LoadingComponent,
+      delay: 300
+    })
   }
 ];
