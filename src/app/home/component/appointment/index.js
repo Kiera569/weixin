@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import TopBar from "../../components/top-bar";
+// import TopBar from "../../components/top-bar";
 import { Button } from "antd-mobile";
 import { withRouter } from "react-router-dom";
+import TopBar from "../../../../components/top-bar";
 @withRouter
 class Appointment extends Component {
   gotoDoctor = () => {

@@ -1,11 +1,30 @@
-.home-page {
-  color: red;
-  text-align: center;
-  
-}
-.gobtn{ 
-  width:2rem;
-  border-radius: .2rem;
-  margin-left: 4.6rem;
-  margin-top: 2rem;
+.home-index{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #f4f7fc;
+  overflow: hidden;
+  .am-tab-bar-bar{
+    height: 1.42rem;
+  }
+  .am-tab-bar-bar::before{
+    background-color: #efefef !important;
+  }
+  .am-tab-bar-tab-title{
+    font-size: .4rem;
+  }
+  .am-tabs-horizontal .am-tabs-pane-wrap-inactive{
+    overflow: hidden;
+  }
+  .tab-icon-box{
+    width: .6rem;
+    height: .6rem;
+    margin-bottom: .1rem;
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
 }

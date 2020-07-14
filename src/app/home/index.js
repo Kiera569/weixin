@@ -1,32 +1,57 @@
-import React, { Component } from "react";
-import { Button } from "antd-mobile";
+import React from "react";
+import { TabBar } from "antd-mobile";
+import { observer, inject } from "mobx-react";
+import tabItem from "./const";
 import "./index.less";
-import PersonInfo from "../../components/person-info/index";
-import TopBar from "../../components/top-bar";
 
-class Home extends Component {
-  goLogin = () => {
-    const {
-      history: { push }
-    } = this.props;
-    push("/login");
-  };
+// @inject("userState")
+// @observer
+class HomeIndex extends React.Component {
+  constructor(props) {
+    super(props);
+    // const tab = sessionStorage.getItem("_homeKey");
 
+    this.state = {
+      // selectedTab: tab || "0"
+      selectedTab: "0"
+    };
+  }
   render() {
-    const arr = [1, 2, 3, 4, 5, 6];
-    const { history } = this.props;
+    const { selectedTab } = this.state;
     return (
-      <div>
-        <TopBar title="首页" hideBack="null" />
-        {arr.map((item, index) => {
-          return <PersonInfo key={item} props={history} />;
-        })}
-
-        <Button type="primary" onClick={this.goLogin} className="gobtn">
-          点击
-        </Button>
+      <div className="home-index">
+        <TabBar
+          unselectedTintColor="#191919"
+          tintColor="#794ca6"
+          prerenderingSiblingsNumber={0}
+        >
+          {tabItem.map((v, i) => {
+            return (
+              <TabBar.Item
+                title={v.title}
+                key={`${i}`}
+                icon={v.icon}
+                selectedIcon={v.selectedIcon}
+                selected={selectedTab === `${i}`}
+                onPress={() => {
+                  const { userState } = this.props;
+                  // sessionStorage.setItem("_homeKey", `${i}`);
+                  if (i === tabItem.length - 1) {
+                    // userState.initUser();
+                  }
+                  this.setState({
+                    selectedTab: `${i}`
+                  });
+                }}
+              >
+                {v.component}
+              </TabBar.Item>
+            );
+          })}
+        </TabBar>
       </div>
     );
   }
 }
-export default Home;
+
+export default HomeIndex;

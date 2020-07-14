@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import TopBar from "../../components/top-bar";
+import TopBar from "../../../../components/top-bar";
 
 class Hospital extends Component {
   onChange = key => {

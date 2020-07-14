@@ -4,7 +4,7 @@ export default [
   {
     path: "/hospital-info",
     component: Loadable({
-      loader: () => import("../app/hospital"),
+      loader: () => import("../app/home/component/hospital"),
       loading: LoadingComponent,
       delay: 300
     })
@@ -12,7 +12,7 @@ export default [
   {
     path: "/appointment",
     component: Loadable({
-      loader: () => import("../app/appointment"),
+      loader: () => import("../app/home/component/appointment"),
       loading: LoadingComponent,
       delay: 300
     })
@@ -21,7 +21,7 @@ export default [
   {
     path: "/doctor",
     component: Loadable({
-      loader: () => import("../app/doctor"),
+      loader: () => import("../app/home/component/doctor"),
       loading: LoadingComponent,
       delay: 300
     })

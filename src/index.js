@@ -6,11 +6,12 @@ import App from "./route/index";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 
-function handleClientWidth (doc, win) {
+function handleClientWidth(doc, win) {
   const docEl = doc.documentElement;
-  const resizeEvt = "orientationchange" in window ? "orientationchange" : "resize";
-  const recalc = function recalc () {
-    const { clientWidth, } = docEl;
+  const resizeEvt =
+    "orientationchange" in window ? "orientationchange" : "resize";
+  const recalc = function recalc() {
+    const { clientWidth } = docEl;
     if (!clientWidth) return;
     docEl.style.fontSize = `${100 * (clientWidth / 1080)}px`;
   };
@@ -20,8 +21,6 @@ function handleClientWidth (doc, win) {
   doc.addEventListener("DOMContentLoaded", recalc, false);
 }
 handleClientWidth(document, window);
-
-
 
 ReactDOM.render(
   <HashRouter>
