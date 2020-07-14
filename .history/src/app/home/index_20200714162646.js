@@ -1,6 +1,6 @@
 import React from "react";
 import { TabBar } from "antd-mobile";
-// import { observer, inject } from "mobx-react";
+import { observer, inject } from "mobx-react";
 import tabItem from "./const";
 import "./index.less";
 

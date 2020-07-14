@@ -7,7 +7,7 @@ import PersonInfo from "../../../../components/person-info";
 import TopBar from "../../../../components/top-bar";
 import { withRouter } from "react-router-dom";
 
-@withRouter
+@Rowithuter
 class Home extends Component {
   goLogin = () => {
     const {

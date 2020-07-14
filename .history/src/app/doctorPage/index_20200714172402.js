@@ -1,4 +1,4 @@
-import React from "react";
+import React, {  } from "react";
 import TopBar from "../../components/top-bar";
 import PersonInfo from "../../components/person-info";
 import TabComponent from "../../components/tabs";

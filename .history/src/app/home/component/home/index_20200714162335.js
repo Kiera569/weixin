@@ -17,7 +17,7 @@ class Home extends Component {
   };
 
   render() {
-    const arr = [1, 2, 3, 4, 5, 6];
+    const arr = [1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6];
     const { history } = this.props;
     return (
       <div>

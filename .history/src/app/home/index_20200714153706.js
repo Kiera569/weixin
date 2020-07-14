@@ -1,6 +1,6 @@
 import React from "react";
 import { TabBar } from "antd-mobile";
-// import { observer, inject } from "mobx-react";
+import { observer, inject } from "mobx-react";
 import tabItem from "./const";
 import "./index.less";
 
@@ -34,11 +34,11 @@ class HomeIndex extends React.Component {
                 selectedIcon={v.selectedIcon}
                 selected={selectedTab === `${i}`}
                 onPress={() => {
-                  // const { userState } = this.props;
+                  const { userState } = this.props;
                   // sessionStorage.setItem("_homeKey", `${i}`);
-                  // if (i === tabItem.length - 1) {
-                  // userState.initUser();
-                  // }
+                  if (i === tabItem.length - 1) {
+                    // userState.initUser();
+                  }
                   this.setState({
                     selectedTab: `${i}`
                   });
