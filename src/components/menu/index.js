@@ -75,6 +75,9 @@ class Menu extends PureComponent {
       });
     }
   };
+  subBtn = item => {
+    console.log(item.value);
+  };
   render() {
     const { subData } = this.state;
     console.log(subData);
@@ -94,7 +97,13 @@ class Menu extends PureComponent {
         <div className="menuBox2">
           {subData.length
             ? subData.map((item, index) => {
-                return <SubItem text={item.value} key={index}></SubItem>;
+                return (
+                  <SubItem
+                    text={item.value}
+                    key={index}
+                    handleBtn={() => this.subBtn(item)}
+                  ></SubItem>
+                );
               })
             : ""}
         </div>
@@ -113,6 +122,10 @@ function Item({ text, handleBtn }) {
   );
 }
 
-function SubItem({ text }) {
-  return <div className="SubItemBox">{text}</div>;
+function SubItem({ text, handleBtn }) {
+  return (
+    <div className="SubItemBox" onClick={() => handleBtn()}>
+      {text}
+    </div>
+  );
 }
