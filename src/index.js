@@ -13,7 +13,7 @@ function handleClientWidth(doc, win) {
   const recalc = function recalc() {
     const { clientWidth } = docEl;
     if (!clientWidth) return;
-    docEl.style.fontSize = `${100 * (clientWidth / 1080)}px`;
+    docEl.style.fontSize = `${100 * (clientWidth / 750)}px`;
   };
 
   if (!doc.addEventListener) return;
