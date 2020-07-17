@@ -13,7 +13,7 @@ export default [
   },
   // 预约挂号
   {
-    path: "/appointment",
+    path: "/appointment/:val/:value",
     title: "预约挂号",
     component: Loadable({
       loader: () => import("../app/home/component/appointment"),

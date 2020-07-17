@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import './index.less'
 
-
-
 const data = [
   {
     key: 1,
@@ -64,21 +62,22 @@ const data = [
 class selectDepart extends Component {
   state = {
     num: "",
-    subData: "",
+    subData: {},
     searchValue: ""
   };
   // 点击一级菜单
   btn = (item) => {
-    console.log(item)
     this.setState({
       num: item.key,
-      subData: item.children || "",
+      subData: item,
     });
+
 
   };
   // 点击二级菜单
-  subBtn = item => {
-    console.log(item.value);
+  subBtn = (item) => {
+    const { history } = this.props;
+    history.push(`/appointment/${item?.value}/${item?.children[0]?.value}`)
   };
 
   // 搜索框点击事件
@@ -100,7 +99,6 @@ class selectDepart extends Component {
         <div className='levelLinkage'>
           <div className='firstLinkage'>
             {data.map((item, index) => {
-
               return (
                 <Item
                   text={item.value}
@@ -111,17 +109,15 @@ class selectDepart extends Component {
             })}
           </div>
           <div className='twoLinkage'>
-            {subData.length
-              ? subData.map((item, index) => {
-                return (
-                  <SubItem
-                    text={item.value}
-                    key={item.value}
-                    handleBtn={() => this.subBtn(item)}
-                  ></SubItem>
-                );
-              })
-              : ""}
+            {(subData.children || []).map((item, index) => {
+              return (
+                <SubItem
+                  text={item.value}
+                  key={item.value}
+                  handleBtn={() => this.subBtn(subData)}
+                ></SubItem>
+              );
+            })}
           </div>
 
         </div>
@@ -135,7 +131,7 @@ export default selectDepart;
 // 一级标题
 function Item({ text, handleBtn, isBtn = false }) {
   return (
-    <div className={`firstLinkageItem ${isBtn ? "active" : ""}`} onClick={() => handleBtn()
+    <div className={`firstLinkageItem ${isBtn ? "active" : ""} `} onClick={() => handleBtn()
     }>
       {text}
     </div >
