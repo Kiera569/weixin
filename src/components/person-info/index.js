@@ -1,13 +1,19 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import { Button } from "antd-mobile";
 import "./index.less";
 @withRouter
 class PersonInfo extends Component {
-  submit = () => {
-    console.log(111)
+  constructor(props) {
+    super(props)
+  }
+
+  submit = (item) => {
+    console.log(111, item)
+    const { history } = this.props;
+    history.push('/doctorDetail/' + JSON.stringify(item))
   };
   render() {
+    console.log(this.props)
     return (
       <div className="doctor-info">
         <div className="person-box">
@@ -19,14 +25,17 @@ class PersonInfo extends Component {
           </div>
           <div className="info-box">
             <div className="info-title">
-              <span className="person-name">华佗</span>
-              <div className="person-level"> 主治医师</div>
+              <span className="person-name">{this.props.props.name}</span>
+              <div className="person-level"> {this.props.props.zhiwei}</div>
             </div>
-            <div className="person-info">亚专业:
-            <span className='person-info-text'>23242535s35</span>
-              <div className='pre-btn' onClick={this.submit}>预约</div>
+            <div className="person-info">
+              亚专业:
+              <span className='person-info-text'> {this.props.props.yazhuanye}</span>
+              {
+                this.props.props.yueyue ? (<div className='pre-btn' onClick={() => this.submit(this.props.props)}>预约</div>) : (<div className='before-btn'>约满</div>)
+              }
             </div>
-            <div className="person-tech">专业擅长:<span className='person-tech-text'>2sssssssssssssssssssssssdd3</span></div>
+            <div className="person-tech">专业擅长:<span className='person-tech-text'>{this.props.props.tech}</span></div>
           </div>
         </div>
       </div>

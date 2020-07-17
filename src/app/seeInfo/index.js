@@ -84,7 +84,6 @@ function PhoneCodeBtn({ requestPromise, duartion = 10, text = "获取验证码" 
     }
     if (time !== duartion) {
       timerHander.current = setTimeout(() => {
-        console.log("111", time - 1)
         setTime(time - 1);
       }, 1000)
     }

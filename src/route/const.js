@@ -32,7 +32,7 @@ export default [
   // },
   // 医生详情
   {
-    path: "/doctorDetail",
+    path: "/doctorDetail/:info",
     title: "医生详情",
     component: Loadable({
       loader: () => import("../app/doctorDetail"),
