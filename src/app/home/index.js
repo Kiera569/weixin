@@ -34,7 +34,11 @@ class HomeIndex extends React.Component {
                 selectedIcon={v.selectedIcon}
                 selected={selectedTab === `${i}`}
                 onPress={() => {
+<<<<<<< HEAD
                   // const { userState } = this.props;
+=======
+                //   const { userState } = this.props;
+>>>>>>> 164a69a9f10c196ae6239ca60b50127bbe13fe63
                   // sessionStorage.setItem("_homeKey", `${i}`);
                   // if (i === tabItem.length - 1) {
                   // userState.initUser();
