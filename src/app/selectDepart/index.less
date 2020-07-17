@@ -4,6 +4,7 @@
   background-color: #fff;
   display: flex;
   flex-direction: column;
+  padding-top: .2rem;
   .levelLinkage{
     flex: 1;
   }
@@ -12,11 +13,58 @@
 .levelLinkage{
   width: 100%;
   display: flex;
+  color: #242424;
   .firstLinkage {
     flex: 3;
+    font-size: .3rem;
     background-color: #f2f2f4;
+    .firstLinkageItem {
+      height: .87rem;
+      line-height: .86rem;
+      padding-left: .34rem;
+      border-bottom: 1px solid #e0e0e0;
+    }
   }
   .twoLinkage {
-    flex:5
+    flex:5;
+    font-size: .28rem;
+    .twoLinkageItem {
+    padding-left: .41rem;
+    padding-top:.21rem ;
+    padding-bottom: .42rem;
+    }
   }
+ }
+
+ .active {
+   background-color: #fff;
+   color: #29b9c3;
+ }
+
+ .inputSearch {
+   display: flex;
+   justify-content: center;
+ }
+
+ .inputSearchBox {
+   width:6.9rem;
+   height: .6rem;
+   display: flex;
+   margin-bottom:.3rem;
+   background-color: #f2f2f4;
+   border-radius: .29rem;
+ }
+ .inputSearchIcon {
+   width: .8rem;
+   line-height: .7rem;
+   padding-left: .45rem;
+   border-radius: .29rem;
+ }
+ .inputSearchBox-input {
+   flex: 1;
+   border-radius: .29rem;
+   padding-right: .2rem;
+   background-color: #f2f2f4;
+   height: .6rem;
+   border: none;
  }

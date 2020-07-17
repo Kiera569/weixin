@@ -64,7 +64,7 @@ class Menu extends PureComponent {
     subData: "",
     showChidren: false
   };
-  btn = item => {
+  btn = (item) => {
     this.setState({
       num: item.key,
       subData: item.children || ""
@@ -80,7 +80,6 @@ class Menu extends PureComponent {
   };
   render() {
     const { subData } = this.state;
-    console.log(subData);
     return (
       <div className="menuBox">
         <div className="menuBox1">
@@ -88,7 +87,7 @@ class Menu extends PureComponent {
             return (
               <Item
                 text={item.value}
-                key={item.key}
+                key={item.value}
                 handleBtn={() => this.btn(item)}
               ></Item>
             );
@@ -97,14 +96,14 @@ class Menu extends PureComponent {
         <div className="menuBox2">
           {subData.length
             ? subData.map((item, index) => {
-                return (
-                  <SubItem
-                    text={item.value}
-                    key={index}
-                    handleBtn={() => this.subBtn(item)}
-                  ></SubItem>
-                );
-              })
+              return (
+                <SubItem
+                  text={item.value}
+                  key={item.value}
+                  handleBtn={() => this.subBtn(item)}
+                ></SubItem>
+              );
+            })
             : ""}
         </div>
       </div>
