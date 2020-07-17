@@ -13,20 +13,14 @@ class Home extends Component {
     const {
       history: { push }
     } = this.props;
-    push("/login");
+    push("/seeInfo");
   };
 
   render() {
-    const arr = [1, 2, 3, 4, 5, 6];
-    const { history } = this.props;
     return (
-      <div>
-        <TopBar title="首页" hideBack="null" />
-        {arr.map((item, index) => {
-          return <PersonInfo key={item} props={history} />;
-        })}
-
-        <Button type="primary" onClick={this.goLogin} className="gobtn">
+      <div className="home">
+        医院简介
+        <Button type="primary" onClick={this.goLogin} className="submitBtn">
           点击
         </Button>
       </div>

@@ -18,6 +18,7 @@ module.exports = override(
   //   }
   // })  版本6.0
   addLessLoader({
-    javascriptEnabled: true
+    javascriptEnabled: true,
+    modifyVars: { "@primary-color": "#29b9c3" }
   })
 );

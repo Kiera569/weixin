@@ -3,10 +3,8 @@ import React from "react";
 import HomeContainerIndex from "./component/home";
 // 预约挂号
 import CommunityIndex from "./component/appointment";
-// 医院
-import HomeContainerActivity from "./component/hospital";
 // 我的
-import HomeContainerMine from "./component/doctor";
+import HomeContainerMine from "./component/mine";
 
 export default [
   {
@@ -30,16 +28,6 @@ export default [
       </div>
     ),
     component: <CommunityIndex />
-  },
-  {
-    title: "医生",
-    icon: <div className="tab-icon-box">{/* <img src={Look} alt="" /> */}</div>,
-    selectedIcon: (
-      <div className="tab-icon-box">
-        {/* <img src={LookActive} alt="" /> */}
-      </div>
-    ),
-    component: <HomeContainerActivity />
   },
   {
     title: "我的",

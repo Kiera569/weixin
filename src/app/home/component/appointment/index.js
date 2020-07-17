@@ -7,7 +7,7 @@ import TopBar from "../../../../components/top-bar";
 class Appointment extends Component {
   gotoDoctor = () => {
     const { history } = this.props;
-    history.push("/doctor");
+    history.push("/doctorDetail");
   };
   render() {
     return (

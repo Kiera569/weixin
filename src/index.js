@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { HashRouter } from "react-router-dom";
-import App from "./route/index";
+import Routers from "./route/index";
 // import Store from "./store/index";
+import WatchRouterChange from "./watchRouterChange";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 
@@ -13,7 +14,7 @@ function handleClientWidth(doc, win) {
   const recalc = function recalc() {
     const { clientWidth } = docEl;
     if (!clientWidth) return;
-    docEl.style.fontSize = `${100 * (clientWidth / 1080)}px`;
+    docEl.style.fontSize = `${100 * (clientWidth / 750)}px`;
   };
 
   if (!doc.addEventListener) return;
@@ -24,9 +25,9 @@ handleClientWidth(document, window);
 
 ReactDOM.render(
   <HashRouter>
-    {/* <Store> */}
-    <App />
-    {/* </Store> */}
+    <WatchRouterChange>
+      <Routers />
+    </WatchRouterChange>
   </HashRouter>,
   document.getElementById("root")
 );
