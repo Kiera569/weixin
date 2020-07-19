@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './index.less'
+import "./index.less";
 
 const data = [
   {
@@ -9,16 +9,6 @@ const data = [
       {
         key: 1,
         value: "ason"
-      }
-    ]
-  },
-  {
-    key: 4,
-    value: "ddd",
-    children: [
-      {
-        key: 1,
-        value: "dson"
       }
     ]
   },
@@ -54,6 +44,17 @@ const data = [
       }
     ]
   },
+
+  {
+    key: 4,
+    value: "ddd",
+    children: [
+      {
+        key: 1,
+        value: "dson"
+      }
+    ]
+  },
   {
     key: 5,
     value: "5555"
@@ -63,52 +64,59 @@ class selectDepart extends Component {
   state = {
     num: "",
     subData: {},
-    searchValue: ""
+    searchValue: "",
+    showMenuItem: -1
   };
   // 点击一级菜单
-  btn = (item) => {
+  btn = (e, item, index) => {
+    console.log(index);
+    e.stopPropagation();
     this.setState({
       num: item.key,
       subData: item,
+      showMenuItem: index
     });
-
-
   };
   // 点击二级菜单
-  subBtn = (item) => {
+  subBtn = item => {
     const { history } = this.props;
-    history.push(`/appointment/${item?.value}/${item?.children[0]?.value}`)
+    history.push(`/appointment/${item?.value}/${item?.children[0]?.value}`);
   };
 
   // 搜索框点击事件
   searchBtn = searchValue => {
-    console.log(searchValue)
-  }
+    console.log(searchValue);
+  };
+
   render() {
-    const { subData, searchValue } = this.state;
+    const { subData, searchValue, showMenuItem } = this.state;
     return (
-      <div className='selectDepart'>
-        <div className='inputSearch'>
+      <div className="selectDepart">
+        <div className="inputSearch">
           <InputSearch
             placeholder="搜索科室"
             value={searchValue}
-            onChange={e => { this.setState({ searchValue: e.target.value }) }}
+            onChange={e => {
+              this.setState({ searchValue: e.target.value });
+            }}
             handleBtn={() => this.searchBtn(searchValue)}
           />
         </div>
-        <div className='levelLinkage'>
-          <div className='firstLinkage'>
+        <div className="levelLinkage">
+          <div className="firstLinkage">
             {data.map((item, index) => {
               return (
                 <Item
                   text={item.value}
                   key={item.value}
-                  handleBtn={() => this.btn(item)}
+                  index={index}
+                  handleBtn={e => this.btn(e, item, index)}
+                  showMenuItem={showMenuItem}
                 ></Item>
               );
             })}
           </div>
-          <div className='twoLinkage'>
+          <div className="twoLinkage">
             {(subData.children || []).map((item, index) => {
               return (
                 <SubItem
@@ -119,7 +127,6 @@ class selectDepart extends Component {
               );
             })}
           </div>
-
         </div>
       </div>
     );
@@ -127,14 +134,18 @@ class selectDepart extends Component {
 }
 export default selectDepart;
 
-
 // 一级标题
-function Item({ text, handleBtn, isBtn = false }) {
+function Item({ text, handleBtn, index, showMenuItem }) {
+  console.log(index === showMenuItem);
   return (
-    <div className={`firstLinkageItem ${isBtn ? "active" : ""} `} onClick={() => handleBtn()
-    }>
+    <div
+      className={
+        "firstLinkageItem" + " " + (showMenuItem === index ? "active" : "")
+      }
+      onClick={e => handleBtn(e)}
+    >
       {text}
-    </div >
+    </div>
   );
 }
 
@@ -147,16 +158,35 @@ function SubItem({ text, handleBtn }) {
   );
 }
 
-
 // 搜索框
 function InputSearch({ placeholder, value, onChange, other, handleBtn }) {
   return (
-    <div className='inputSearchBox'>
-      <div className='inputSearchIcon' onClick={() => handleBtn()
-      }>
-        <svg t="1594954260050" className="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2049" width=".26rem" height=".26rem"><path d="M400.704 801.408A400.64 400.64 0 1 1 400.704 0a400.64 400.64 0 0 1 0 801.408z m0-89.024a311.68 311.68 0 1 0 0-623.36 311.68 311.68 0 0 0 0 623.36z m267.264-110.4l314.752 314.88-62.912 62.912-314.816-314.816 62.976-62.976z" fill="#707070" p-id="2050"></path></svg>
+    <div className="inputSearchBox">
+      <div className="inputSearchIcon" onClick={() => handleBtn()}>
+        <svg
+          t="1594954260050"
+          className="icon"
+          viewBox="0 0 1024 1024"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          p-id="2049"
+          width=".26rem"
+          height=".26rem"
+        >
+          <path
+            d="M400.704 801.408A400.64 400.64 0 1 1 400.704 0a400.64 400.64 0 0 1 0 801.408z m0-89.024a311.68 311.68 0 1 0 0-623.36 311.68 311.68 0 0 0 0 623.36z m267.264-110.4l314.752 314.88-62.912 62.912-314.816-314.816 62.976-62.976z"
+            fill="#707070"
+            p-id="2050"
+          ></path>
+        </svg>
       </div>
-      <input className='inputSearchBox-input' value={value} onChange={onChange} placeholder={placeholder} {...other} />
+      <input
+        className="inputSearchBox-input"
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        {...other}
+      />
     </div>
-  )
+  );
 }
