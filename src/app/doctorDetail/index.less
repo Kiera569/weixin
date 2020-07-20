@@ -1,20 +1,62 @@
 .person-introduce {
   margin-top: .1rem;
+  background-color: #fff;
+  .work-order{
+    width: 100%;
+    padding:.3rem;
+    // height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .confirm-pre {
+      width: 6.9rem;
+      height: .88rem;
+      background-color: #29b9c3;
+      border-radius: 10px;
+      margin-top:2.8rem
+      
+    }
+  }
+ 
 }
-
 
 .am-accordion .am-accordion-item .am-accordion-content .am-accordion-content-box {
   font-size: .28rem;
-  height: 2rem;
+  height: 3.44rem;
   color: #a3a3a3;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
   padding:.1rem .3rem .3rem .3rem;
-  line-height:.45rem;
   border-bottom: 1px solid #f2f2f2;
+  line-height:.69rem;
+  display: "-webkit-box";
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
   overflow: hidden;
+  text-overflow: ellipsis;
   word-wrap: break-word;
   word-break: break-all;
+}
+
+.order-info {
+  width:3.35rem;
+  height: .8rem;
+  font-size: .28rem;
+  border-radius: .1rem;
+  text-align: center;
+  margin-top:.2rem;
+  line-height: .8rem;
+}
+
+.order-info-unactive {
+  color: #a3a3a3;
+  border: solid 1px #d2d2d2;
+}
+.order-info-active {
+  border: solid 1px #29b9c3;
+  color: #29b9c3;
+}
+
+.order-info-isbtn {
+  background-color: #29b9c3;
+	color: #ffffff;
 }
 
